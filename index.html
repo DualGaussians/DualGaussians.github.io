@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+        content="DualGaussians: A Hybrid Dual Gaussian Representation for Reconstruction and Rendering of Dynamic Objects from Monocular Video.">
+  <meta name="keywords" content="3D Reconstruction, 3D Gaussian">
+  <title>DualGaussians: A Hybrid Dual Gaussian Representation for Reconstruction and Rendering of Dynamic Objects from Monocular Video.</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <link rel="stylesheet" href="./static/css/ppage.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">DualGaussians: A Hybrid Dual Gaussian Representation for Reconstruction and Rendering of Dynamic Objects from Monocular Video</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Weixing Xie</sup>,
+            </span>
+            <span class="author-block">
+              Ying Ye</sup>,
+            </span>
+            <span class="author-block">
+              Xian Wu</sup>,
+            </span>
+            <span class="author-block">
+              Jintian Li</sup>,
+            </span>
+            <span class="author-block">
+              Bingchuan Li</sup>,
+            </span><br>
+            <span class="author-block">
+              Yong Yang</sup>,
+            </span>
+            <span class="author-block">
+              Junfeng Yao*</sup>
+            <span>
+          </div>
+              
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"></sup>Xiamen University</span><br>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://dualgaussians.github.io/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://dualgaussians.github.io/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (coming soon)</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<div class="container">
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/method.png" alt="method" height="100%">
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf"> Framework of our DualGaussians.
+      </h2>
+    </div>
+  </div>
+ </div>
+</section>
+
+         
+              
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Reconstructing high-fidelity and temporally consistent meshes from monocular video is a challenging task. 3D Gaussian Splatting (3DGS) revolutionized radiance field reconstruction due to its advantages in novel view synthesis and rendering speed. However, due to the multi-view inconsistency nature of 3DGS, it is not suitable for reconstructing the geometry of objects. In contrast, 2DGS yields smoother and more accurate surfaces, but suffers from restricted color modeling capabilities. To address these limitations, we propose DualGaussians, a novel hybrid framework that jointly leverages 2DGS and 3DGS through mutual guidance and supervision, achieving superior geometry and appearance reconstruction. Specifically, we first train a dynamic 2DGS to obtain stable geometry and deformation field. We design gradient-aware normal consistency loss and pseudo-view depth consistency loss to improve geometric accuracy. Then our method initiates the training of 3DGS, using 2DGS and its deformations to guide the 3DGS. We design a refinement module to fine-tune the deformation to capture fine-grained time-varying appearance. We also propose a multi-level depth normalization to optimize the 3D Gaussian distribution using the depth of 2DGS. Moreover, the high-quality rendering of 3DGS can be used to suppress the floating noise in 2DGS and further improve the mesh quality. We conduct extensive experiments to demonstrate that DualGaussians achieves state-of-the-art performance, outperforming existing approaches in both geometry accuracy and visual fidelity.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<!-- 视频滚动 -->
+<section class="section">
+ <div class="container is-max-desktop">
+ <h3 class="title is-4">Comparison Experiments</h3>
+        <div class="content has-text-justified">
+          <p>
+           We compare the reconstructed mesh quality of our DualGaussians with DG-Mesh, D-2DGS, and MaGS on the DG-Mesh dataset.
+          </p>
+        </div>
+  <div class="articlecontrainer">
+  <br>
+  <div id="video-container" style="height: 450px; width: 80%">
+    <video id="video-player-2" autoplay muted playsinline controls>
+      <source src=" " type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <button id="prev-button-2"></button>
+    <button id="next-button-2"></button>
+  </div>
+  <div id="dots-container-2"></div>
+  <br>
+  </div>
+<script src="./static/js/ppage.js"></script>
+ </div>
+</section>
+<!-- 视频滚动 -->
+
+
+<!-- 视频滚动 -->
+<section class="section">
+ <div class="container is-max-desktop">
+        <div class="content has-text-justified">
+          <p>
+           We compare the reconstructed mesh quality of our DualGaussians with DG-Mesh, D-2DGS, and MaGS on the D-NeRF dataset.
+          </p>
+        </div>
+  <div class="articlecontrainer">
+  <br>
+  <div id="video-container" style="height: 450px; width: 80%">
+    <video id="video-player-3" autoplay muted playsinline controls>
+      <source src=" " type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <button id="prev-button-3"></button>
+    <button id="next-button-3"></button>
+  </div>
+  <div id="dots-container-3"></div>
+  <br>
+  </div>
+<script src="./static/js/3dgs.js"></script>
+ </div>
+</section>
+<!-- 视频滚动 -->
+
+
+
+<!-- 视频滚动 -->
+<section class="section">
+ <div class="container is-max-desktop">
+ 
+        <div class="content has-text-justified">
+          <p>
+           We compare the novel view synthesis quality of our DualGaussians with DG-Mesh, SC-GS, D-2DGS, and MaGS on the D-NeRF and DG-Mesh datasets.
+          </p>
+        </div>
+  <div class="articlecontrainer">
+  <br>
+  <div id="video-container" style="height: 450px; width: 100%">
+    <video id="video-player-4" autoplay muted playsinline controls>
+      <source src=" " type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <button id="prev-button-4"></button>
+    <button id="next-button-4"></button>
+  </div>
+  <div id="dots-container-4"></div>
+  <br>
+  </div>
+<script src="./static/js/point.js"></script>
+ </div>
+</section>
+<!-- 视频滚动 -->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+        
+   <!-- Comparison Experiments -->
+   <!-- 
+        <h3 class="title is-4">Comparison Experiments</h3>
+        <div class="content has-text-justified">
+          <p>
+           Comparison with EndoNeRF, EndoSurf, LerPlane and EndoGaussian:
+          </p>
+        </div>
+          
+        
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 width="90%">
+            <source src="./static/video/pulling.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 width="90%">
+            <source src="./static/video/cutting.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 width="90%">
+            <source src="./static/video/intestine.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 width="90%">
+            <source src="./static/video/live.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+         -->
+    
+    <!-- Concurrent Work. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Related Links</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            <a href="https://www.liuisabella.com/DG-Mesh/">DG-Mesh</a>: Dynamic Gaussians Mesh: Consistent Mesh Reconstruction from Dynamic Scenes.
+          <p>
+          <p>
+            <a href="https://yihua7.github.io/SC-GS-web/">SC-GS</a>: Sparse-controlled Gaussian Splatting for Editable Dynamic Scene.
+          <p>
+          <p>
+            <a href="https://github.com/hustvl/Dynamic-2DGS">D-2DGS</a>: Dynamic 2d Gaussians: Geometrically Accurate Radiance Fields for Dynamic Objects.
+          <p>
+          <p>
+            <a href="https://wcwac.github.io/MaGS-page/">MaGS</a>: Reconstructing and Simulating Dynamic 3D Objects with Mesh-adsorbed Gaussian Splatting.
+          <p>
+          <p>
+            The datasets: <a href=<a href="https://www.liuisabella.com/DG-Mesh/">DG-Mesh dataset</a> and <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF dataset</a>.
+          <p>
+        </div>
+      </div>
+    </div>
+    <!--/ Concurrent Work. -->
+              
+  </div>
+</section>
+              
+
+<!--              
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <p>If you find this work helpful, you can cite our paper as follows:</p>
+    <pre><code>@article{xie2025endo-hdr,
+  author    = {Xie, Weixing and Yao, Junfeng and Wu, Shaoqi and Zhou, Rongzhou and Hong, Qingqi and Dong, Xiao and Guo, Xiaohu},
+  title     = {Endo-HDR: Dynamic Endoscopic Reconstruction with Deformable 3D Gaussians and Hierarchical Depth Regularization},
+  journal   = {arxiv},
+  year      = {2025},
+}</code></pre>
+  </div>
+</section>
+   -->           
+<section class="section" id="Contact">
+  <hr>
+  <div class="container is-max-desktop content">
+    <p>If you have any questions or feedbacks, please contact Weixing Xie (<a href="mailto:xwxxmu@gmail.com">xwxxmu@gmail.com</a>).</p>
+  </div>
+</section>
+              
+<footer class="footer">
+  <div class="container">
+
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This website is partially borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+              
+
+
+</body>
+</html>
